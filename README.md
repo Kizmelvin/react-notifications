@@ -1,4 +1,4 @@
-## React Real-Time Notifications Tutorial - README
+## React Real-Time Notifications
 
 ![alt text](react-notif-ezgif.com-video-to-gif-converter.gif)
 
