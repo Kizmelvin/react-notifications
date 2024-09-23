@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { useState } from "react";
+import Homepage from "./components/Homepage";
+import Register from "./components/Register";
+
+const socket = new WebSocket("ws://localhost:8080");
 
 function App() {
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Register
+            firstName={firstName}
+            setFirstName={setFirstName}
+            email={email}
+            setEmail={setEmail}
+            socket={socket}
+          />
+        }
+      />
+      <Route
+        path="/home"
+        element={
+          <Homepage firstName={firstName} email={email} webSocket={socket} />
+        }
+      />
+    </Routes>
   );
 }
-
 export default App;

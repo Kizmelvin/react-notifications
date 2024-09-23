@@ -27,7 +27,20 @@
 .App-link {
   color: #61dafb;
 }
-
+table {
+  width: 80%;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
